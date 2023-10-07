@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheet Clone</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styleMenu.css">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <div id="navList">
+    <p>File</p>
+    <p>Edit</p>
+    <p>View</p>
+    <p>Insert</p>
+    <p>Format</p>
+    <p>Help</p>
+  </div>
+
+    <div id="options">
+        <div class="menus">
+          <button id="copy" title="copy"><i class="fa-regular fa-copy fa-2xl" style="color: #000000;"></i></button>
+          <button id="paste" title="paste"><i class="fa-regular fa-paste fa-2xl" style="color: #000000;"></i></button>
+          <button id="cut" title="cut"><i class="fa-solid fa-scissors fa-2xl" style="color: #000000;"></i></button>
+
+          <select id="fontSize">
+            <option value="14">14</option>
+            <option value="16">16</option>
+            <option value="18">18</option>
+            <option value="20">20</option>
+          </select>
+
+          <select  id="selectFontFamily">
+            <option value="'Courier New', Courier, monospace">Courier</option>
+            <option value="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Lucida Sans</option>
+            <option value="Georgia, 'Times New Roman', Times, serif">Georgia</option>
+            <option value="Arial, Helvetica, sans-serif">Arial</option>
+          </select>
+
+          <div title="bold" id="bold" onclick="onClickBold(this)">B</div>
+          <div title="italic" id="italic" onclick="onClickItalic(this)">I</div>
+          <div title="underlined" id="underlined" onclick="onClickUnderline(this)">U</div>
+  
+          <div
+          title="align left"
+            class="material-icons active-option text-align"
+            data-value="start"
+            onclick="onClickTextAlign(this)"
+          >
+            format_align_left
+          </div>
+          <div
+          title="align right"
+            class="material-icons text-align"
+            data-value="right"
+            onclick="onClickTextAlign(this)"
+          >
+            format_align_right
+          </div>
+          <div
+          title="align center"
+            class="material-icons text-align"
+            data-value="center"
+            onclick="onClickTextAlign(this)"
+          >
+            format_align_center
+          </div>
+  
+          <div id="text-color" title="text-color">
+            <label for="color-picker"
+              ><span class="material-icons"> border_color </span></label
+            >
+            <input
+              onchange="onChangeTextColor(this)"
+              type="color"
+              id="color-picker"
+              style="width: 0; height: 0"
+            /> 
+          </div>
+  
+          <div id="bg-color" title="background-color">
+            <label for="bgcolor-picker"
+              ><span class="material-icons"> format_color_fill </span></label
+            >
+            <input
+              onchange="onChangeBackgroundColor(this)"
+              type="color"
+              id="bgcolor-picker"
+              style="width: 0; height: 0"
+            />
+          </div>
+        </div>
+
+        <div class="bottomMenu">
+          <div id="active-cell">null</div>
+
+          <div style="display: flex; gap: 10px;">
+            <p>fx</p>
+            <div contenteditable="true" id="empty"></div>
+          </div>
+        </div>
+    </div>
+
+    <main style="width: 100vw; margin: auto; height: 100vh; overflow: scroll">
+        <div id="header">
+          <b style="position: sticky; left: 0; top: 0; background-color: white">S.No</b
+          >
+        </div>
+        <section id="body"></section>
+    </main>
+
+    <script src="./scriptOptions.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
